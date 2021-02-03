@@ -146,12 +146,13 @@ def horoscope_results():
     # TODO: Look up the user's personality in the HOROSCOPE_PERSONALITIES
     # dictionary based on what the user entered
     # ---------------- Need Help ----------------------
-    users_personality = request.args.get('HOROSCOPE_PERSONALITIES')
+    users_personality = HOROSCOPE_PERSONALITIES[horoscope_sign]
 
     # TODO: Generate a random number from 1 to 99
     lucky_number = random.randint(1, 99)
 
     context = {
+        'name': request.args.get('users_name'),
         'horoscope_sign': horoscope_sign,
         'personality': users_personality,
         'lucky_number': lucky_number
